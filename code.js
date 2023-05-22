@@ -74,10 +74,10 @@ function drawLips(face) {
   customLipImage.onload = function () {
     ctx.drawImage(
       customLipImage,
-      lipLeft - lipWidth * 0.05,
-      lipTop - lipHeight * 0.5,
-      lipWidth + lipWidth * 0.15,
-      lipHeight + lipHeight * 1.2
+      lipLeft - lipWidth,
+      lipTop - lipHeight,
+      lipWidth + lipWidth,
+      lipHeight + lipHeight
     );
   };
 }
