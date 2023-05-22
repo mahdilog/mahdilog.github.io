@@ -1,3 +1,7 @@
+var canvas;
+var ctx;
+var curFaces;
+
 async function setupCamera() {
   video = document.getElementById("video");
 
@@ -5,11 +9,12 @@ async function setupCamera() {
     audio: false,
 
     video: {
+      //for chosing camera
       facingMode: "user",
+      //5:4
+      aspectRatio: 1.25,
 
-      aspectRatio: 1.333,
-
-      width: { ideal: 1280 },
+      width: { ideal: 1080 },
     },
   });
 
@@ -21,7 +26,6 @@ async function setupCamera() {
     };
   });
 }
-var curFaces;
 
 async function renderPrediction() {
   const facepred = await fmesh.estimateFaces(video);
@@ -77,10 +81,6 @@ function drawLips(face) {
     );
   };
 }
-
-var canvas;
-
-var ctx;
 
 async function main() {
   fmesh = await facemesh.load({ maxFaces: 3 });
